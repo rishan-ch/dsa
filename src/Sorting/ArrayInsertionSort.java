@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class ArrayInsertionSort {
     public static void main(String[] args) {
-        int[] arr = {3,2,1,6,4,7,5};
+        int[] arr = {3,2,1,6,4,};
         int l = arr.length;
 
         for (int i = 0; i <l-1 ; i++) {
