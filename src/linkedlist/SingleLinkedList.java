@@ -22,6 +22,54 @@ public class SingleLinkedList {
         size+=1;
     }
 
+    public void insertLastNode(int value){
+        Node node = new Node(value);
+        if(tail==null){
+            insertFirstNode(value);
+        } else{
+            tail.next = node;
+            tail = node;
+        }
+        size += 1;
+    }
+
+    public void insertAtIndex(int value, int index){
+        if(index==0){
+            insertFirstNode(value);
+        } else if(index==size){
+            insertLastNode(value);
+        }else {
+            Node temp = head;
+            for (int i = 1; i < index; i++) {
+                temp = temp.next;
+            }
+            Node node = new Node(value, temp.next);
+            temp.next = node;
+        }
+
+    }
+
+    public void display(){
+        Node temp = head;
+        while(temp!=null){
+            System.out.print(temp.value + " -> ");
+            temp = temp.next;
+        }
+    }
+
+    public static void main(String[] args) {
+        SingleLinkedList ll = new SingleLinkedList();
+        ll.insertFirstNode(9);
+        ll.insertFirstNode(1);
+        ll.insertFirstNode(4);
+        ll.insertFirstNode(2);
+        ll.insertFirstNode(6);
+        ll.insertFirstNode(7);
+        ll.insertLastNode(99);
+        ll.insertAtIndex(100,5);
+        ll.display();
+    }
+
     private class Node{
         private int value;
         private Node next;
