@@ -49,12 +49,56 @@ public class SingleLinkedList {
 
     }
 
+    public void deleteFirstNode(){
+        if (head == null) {
+            System.out.println("linked list is empty");
+        }else{
+            Node temp = head.next;
+            head = temp;
+            size-=1;
+        }
+
+    }
+
+    public void deleteLastNode(){
+        if(size<=1){
+            deleteFirstNode();
+        }else{
+            Node node = head;
+            for (int i = 0; i < size; i++) {
+                if(node.next.next == null){
+                    tail = node;
+                    tail.next = null;
+                    size-=1;
+                } else{
+                    node = node.next;
+                }
+            }
+        }
+
+    }
+
+    public void deleteAtIndex(int index){
+        if (index == 0){
+            deleteFirstNode();
+        } else if(index == size){
+            deleteLastNode();
+        } else{
+            Node node = head;
+            for (int i = 1; i < index; i++) {
+                node = node.next;
+            }
+            node.next = node.next.next;
+        }
+    }
+
     public void display(){
         Node temp = head;
         while(temp!=null){
             System.out.print(temp.value + " -> ");
             temp = temp.next;
         }
+        System.out.println(" ");
     }
 
     public static void main(String[] args) {
@@ -67,6 +111,12 @@ public class SingleLinkedList {
         ll.insertFirstNode(7);
         ll.insertLastNode(99);
         ll.insertAtIndex(100,5);
+        ll.display();
+        ll.deleteFirstNode();
+        ll.display();
+        ll.deleteLastNode();
+        ll.display();
+        ll.deleteAtIndex(1);
         ll.display();
     }
 
