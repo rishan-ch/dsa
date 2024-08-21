@@ -57,7 +57,6 @@ public class SingleLinkedList {
             head = temp;
             size-=1;
         }
-
     }
 
     public void deleteLastNode(){
@@ -75,7 +74,6 @@ public class SingleLinkedList {
                 }
             }
         }
-
     }
 
     public void deleteAtIndex(int index){
